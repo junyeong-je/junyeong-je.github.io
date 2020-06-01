@@ -19,13 +19,13 @@ layout: post
 permalink: /:categories/:title
 excerpt_separator: "[-----]"
 
-url: # Required: replace this with your domain
-name: 테크 # Required: will be displayed on every page's header
+url: https://junyeong-je.github.io/Techlog/ # Required: replace this with your domain
+name: Techlog # Required: will be displayed on every page's header
 title: Techlog # Required: site's default title
 shout: # Required: **TWO** lines, will be displayed on page's header.
   - NEVER
   - OR NOW
-description: "Fanghao's personal blog, on IT tech, personal thoughts and other things..." # Required
+description: "IT tech, personal thoughts and other things..." # Required
 
 disqus:
   comments: true # Global toggle on/off disqus comment
