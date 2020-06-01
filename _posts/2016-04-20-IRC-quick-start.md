@@ -5,16 +5,16 @@ category: tutorial
 tags: [irc, tuts]
 excerpt: "该教程只是为了让你在几分钟内就连上 IRC 网络并开始聊天. IRC 功能强大, 如果要深入了解, http://www.irchelp.org 是个不错的资源"
 ---
-# 名词
+# 명사
 
 - **IRC**
 
-    一种网络聊天协议
+    一네트워크 채팅 프로토콜
 
-- **IRC 网络**
+- **IRC 네트워크**
 
-    依据 IRC 协议组成的聊天网络,
-    比较知名的有 `freenode`, `EFnet`, `DALnet` 等
+    IRC 기반 채팅 네트워크 프로토콜 더 잘 알려진 구성,
+    `freenode`, `EFnet`, `DALnet` 등
 
 - **IRC 服务器**
 
