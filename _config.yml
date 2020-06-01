@@ -24,7 +24,7 @@ name: techlog # Required: will be displayed on every page's header
 title: Techlog # Required: site's default title
 shout: # Required: **TWO** lines, will be displayed on page's header.
   - HI
-  - 
+  - IH
 description: "IT tech, personal thoughts and other things..." # Required
 
 disqus:
