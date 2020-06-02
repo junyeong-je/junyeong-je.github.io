@@ -29,7 +29,7 @@ description: "IT tech, personal thoughts and other things..." # Required
 
 disqus:
   comments: true # Global toggle on/off disqus comment
-  shortname: unifreak # Required if you use disqus. Repalce with your disqus shortname here
+  shortname: frampton # Required if you use disqus. Repalce with your disqus shortname here
 
 google_analytics:
   id: "UA-168126711-1" # Required if you use google analytics. Replace with your tracking id here
