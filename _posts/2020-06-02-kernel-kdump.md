@@ -1,9 +1,10 @@
 ---
-title: "What Ever One (2)"
+title: "Kernel kdump Install"
 layout: post
 category: note
-tags: [go]
-excerpt: "Second one"
+tags: [kdump]
+excerpt: "크래시 덤프에는 크래시 된 프로세스의 메모리 이미지, 시스템 레지스터, 프로그램 카운터 및 프리즈의 근본 원인을 확인하는데 유용한 기타 정보가 포함됩니다.
+"
 ---
 
 ## 개요
