@@ -1,29 +1,25 @@
 # About page & Footer
 
-name: 제준
+name: JunYeong Je
 job: "System Engineer"
-hi: "HIYA!"
+hi: "HI"
 avatar_img: "/assets/img/me.png"
 intro:
-  - "한글테스트입니다. "
-  - "除了敲代码, 还喜欢看书, 听摇滚, 做瑜伽, 以及猫猫狗狗"
-  - "业余时间你会看到我不是在像模像样的弹吉他, 就是骑着车子在城里晃荡"
+  - "안녕하세요. "
 skills:
   - name: "Programming"
     icon-class: "fa fa-terminal"
-    list: ["PHP", "Python", "Shell", "C", "SQL", "HTML / CSS", "Markdown"]
+    list: ["Shell", "Python", "SQL", "HTML", "Markdown"]
   - name: "Framework"
     icon-class: "fa fa-th-list"
     list: ["Laravel / Lumen", "ThinkPHP", "Yii", "Flask", "Vue.js", "SASS", "Bootstrap", "jQuery", "Liquid"]
   - name: "Tools"
     icon-class: "fa fa-cogs"
-    list: ["Linux", "Docker", "Git", "SublimeText", "MySQL", "Nginx", "Redis", "Composer", "Jekyll"]
+    list: ["Linux", "ELK Stack", "Docker", "Git", "SublimeText", "MySQL", "Nginx", "Redis", "Composer", "Jekyll"]
 
 display_name: UniFreak
 contact:
-  - {name: "Mobile", icon-class: "fa fa-phone-square", text: "153 6999 7084", link: "tel: 15369997084"}
-  - {name: "Email", icon-class: "fa fa-envelope", text: "fanghao90s@gmail.com", link: "mailto: fanghao90s@gmail.com"}
+  - {name: "Mobile", icon-class: "fa fa-phone-square", text: "010 3330 7860", link: "tel: 01033307860"}
+  - {name: "Email", icon-class: "fa fa-envelope", text: "love_y7@naver.com", link: "mailto: love_y7@naver.com"}
 social:
   - {name: "GitHub", icon-class: "fa fa-github-square", text: "https://junyeong-je.github.io/Techlog/", link: "https://junyeong-je.github.io/Techlog/"}
-  - {name: "StackOverflow", icon-class: "fa fa-stack-overflow", text: "stack-overflow", link: "https://stackoverflow.com/users/3776039/unifreak"}
-  - {name: "QQ", icon-class: "fa fa-qq", text: "744910240", link: "https://user.qzone.qq.com/744910240"}
