@@ -31,7 +31,7 @@ Elasticsearch를 사용 전 Cluster와 Node에 개념에 대해 이해가 필요
 
 ## Elasticsearch 설정
 
-##### 마스터 겸 node-1 설정
+### 마스터 겸 node-1 설정
 
 * /etc/elasticsearch/elasticsearch.yml 설정을 아래와 같이 변경합니다.
 
@@ -53,7 +53,7 @@ cluster.initial_master_nodes: ["10.0.0.73"]
 \- http\.host : 웹에서 elasticsearch를 사용할 수 있게 접근을 허용합니다\.\(반드시필요한 옵션은 아닙니다\)
 \- cluster\.initial\_master\_nodes : 마스터 옵션으로 반드시 입력해야합니다\.
 
-##### node-2 설정
+### node-2 설정
 
 * 동일하게 노드 설정을 위해 elasticsearch.yml 을 수정합니다.
 
@@ -69,7 +69,7 @@ discovery.seed_hosts: ["10.0.0.73:9300"]
 
 \- 마스터노드 설정과 크게 다르지 않으며\, master노드로 사용하지 않기때문에 false로 설정합니다\.
 <br>
-##### index status 확인
+### index status 확인
 
 \- elasticsearch의 index에는 3가지의 상태가 있습니다\.
 ![](http://whatsup.nhnent.com/owfs/read/143921/9e2383e4-dd34-415c-9a2a-837f3edf46c2)<br>
@@ -114,7 +114,7 @@ green  open   apm-7.5.0-transaction-000001       WSDY2YYqTCmhQ1c26vE
 
 - - -
 
-##### 트러블슈팅
+## 트러블슈팅
 
 replication error 에러
 
