@@ -1,7 +1,7 @@
 # About page & Footer
 
 name: JunYeong Je
-job: "System Engineer"
+job: "System Engineer / Cloud Architect"
 hi: "HI"
 avatar_img: "/assets/img/me.png"
 intro:
@@ -12,7 +12,7 @@ skills:
     list: ["Shell", "Python", "SQL", "HTML", "Markdown"]
   - name: "Framework"
     icon-class: "fa fa-th-list"
-    list: ["Laravel / Lumen", "ThinkPHP", "Yii", "Flask", "Vue.js", "SASS", "Bootstrap", "jQuery", "Liquid"]
+    list: ["AWS", "TOAST"]
   - name: "Tools"
     icon-class: "fa fa-cogs"
     list: ["Linux", "ELK Stack", "Docker", "Git", "SublimeText", "MySQL", "Nginx", "Redis", "Composer", "Jekyll"]

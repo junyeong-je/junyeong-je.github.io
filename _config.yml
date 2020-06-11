@@ -23,8 +23,8 @@ url: https://junyeong-je.github.io/Techlog/ # Required: replace this with your d
 name: techlog # Required: will be displayed on every page's header
 title: Techlog # Required: site's default title
 shout: # Required: **TWO** lines, will be displayed on page's header.
-  - HI
-  - IH
+  - Public Cloud
+  - System Technic
 description: "IT tech, personal thoughts and other things..." # Required
 
 disqus:
