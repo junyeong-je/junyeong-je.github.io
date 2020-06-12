@@ -22,12 +22,12 @@ excerpt: "Cluster와 Node 개념에 대한 정의와 2개의 노드를 구성해
 
 Elasticsearch를 사용 전 Cluster와 Node에 개념에 대해 이해가 필요합니다.
 ![](https://mblogthumb-phinf.pstatic.net/MjAxNzAyMjJfMjM5/MDAxNDg3NzUxODcxNjQ3.k2ClCsMZP8YamvxDKzJHJazYaqBQxf5WJ-WSZngzZDQg._LVBOtJKtc63AXXB2w7-1XEdZeo_ue5d-tpMPIsJ5pAg.PNG.indy9052/image.png?type=w800)<br>
-위의 이미지를 살펴보시면 <span>**클러스터**는 여러 노드를 포함하고 있는 Elasticsearch system에 가장 큰 단위 입니다.</span>
-<span>하나의 클러스터는 다수의 노드로 구성되어 있습니다.</span>
-<span>하나의 클러스터는 다수의 서버로 바인딩하여 운영하거나 하나의 서버에서 다수의 클러스터를 운영 할 수 있습니다.</span>
+위의 이미지를 살펴보시면 <span>**클러스터**는 여러 노드를 포함하고 있는 Elasticsearch system에 가장 큰 단위 입니다.</span><br>
+<span>하나의 클러스터는 다수의 노드로 구성되어 있습니다.</span><br>
+<span>하나의 클러스터는 다수의 서버로 바인딩하여 운영하거나 하나의 서버에서 다수의 클러스터를 운영 할 수 있습니다.</span><br>
 
-하나의 클러스터와 두개의 데이터 노드를 구성해 데이터 shard를 확인해 보겠습니다.
-노드와 샤드에 대해 아래 블로그를 참조하시면 좋습니다.
+하나의 클러스터와 두개의 데이터 노드를 구성해 데이터 shard를 확인해 보겠습니다.<br>
+노드와 샤드에 대해 아래 블로그를 참조하시면 좋습니다.<br>
 [https://brownbears.tistory.com/4](https://brownbears.tistory.com/4)
 
 ## Elasticsearch 설정
@@ -46,12 +46,13 @@ http.host: 0.0.0.0
 cluster.initial_master_nodes: ["10.0.0.73"]
 ```
 
-- [cluster.name](http://cluster.name): node-2와 동일한 클러스터 명을 사용해야합니다.
-- [node.name](http://node.name): 사용할 노드명을 입력합니다.
-\- node\.master : 마스터노드로 사용하기 위해 true로 설정합니다\.
-\- node\.data : 마스터노드 겸 데이터노드로 사용하기 위해 true로 설정합니다\.
-\- network\.host : 서버의 사설 IP로 등록합니다\.
-\- http\.host : 웹에서 elasticsearch를 사용할 수 있게 접근을 허용합니다\.\(반드시필요한 옵션은 아닙니다\)
+- cluster.name: node-2와 동일한 클러스터 명을 사용해야합니다.<br>
+- node.name: 사용할 노드명을 입력합니다.<br>
+\- node\.master : 마스터노드로 사용하기 위해 true로 설정합니다\.<br>
+\- node\.data : 마스터노드 겸 데이터노드로 사용하기 위해 true로 설정합니다\.<br>
+\- network\.host : 서버의 사설 IP로 등록합니다\.<br>
+\- http\.host : 웹에서 elasticsearch를 사용할 수 있게 접근을 허용합니다\.<br>
+\(반드시필요한 옵션은 아닙니다\)<br>
 \- cluster\.initial\_master\_nodes : 마스터 옵션으로 반드시 입력해야합니다\.
 
 ### node-2 설정
@@ -74,11 +75,11 @@ discovery.seed_hosts: ["10.0.0.73:9300"]
 
 \- elasticsearch의 index에는 3가지의 상태가 있습니다\.
 ![](http://whatsup.nhnent.com/owfs/read/143921/9e2383e4-dd34-415c-9a2a-837f3edf46c2)<br>
-Yellow 상태는 Primary shard는 준비가 되었으나, Replica shard가 준비되어 있지 않다! 라는 뜻 입니다.
-Replica shard가 없으면 Yellow라는 것은, 필요한 이유가 있기 때문인데 그 것이 무엇일까?
+Yellow 상태는 Primary shard는 준비가 되었으나, Replica shard가 준비되어 있지 않다! 라는 뜻 입니다.<br>
+Replica shard가 없으면 Yellow라는 것은, 필요한 이유가 있기 때문인데 그 것이 무엇일까?<br>
 
-1\. 장애 복구 \(fail\-over\) : 동일한 데이터를 나눠서 가지고 있기 때문에 하나의 노드에 문제가 생겨도\, replica shard가 primary shard로 교체가 됩니다\.
-2\. 검색 성능 : replica shard도 읽기 요청을 처리할 수 있기 때문에 replica가 많아질 경우 검색 성능이 증가하지만\, 하드웨어를 더 추가해야만 증가한다고 합니다\.
+1\. 장애 복구 \(fail\-over\) : 동일한 데이터를 나눠서 가지고 있기 때문에 하나의 노드에 문제가 생겨도\, replica shard가 primary shard로 교체가 됩니다\.<br>
+2\. 검색 성능 : replica shard도 읽기 요청을 처리할 수 있기 때문에 replica가 많아질 경우 검색 성능이 증가하지만\, 하드웨어를 더 추가해야만 증가한다고 합니다\.<br>
 
 <span style="color:#555555">근데 node가 하나라면 복제를 할 수 없다는 점입니다. 기본적으로 elasticsearch는 같은 노드에 동일한 데이터를 가지는 shard를 저장할 수 없습니다.</span><br>
 ![](http://whatsup.nhnent.com/owfs/read/143942/1c7e963f-225e-4f48-a59b-f37fd81b0bee)
