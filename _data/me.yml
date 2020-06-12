@@ -15,7 +15,7 @@ skills:
     list: ["AWS", "TOAST"]
   - name: "Tools"
     icon-class: "fa fa-cogs"
-    list: ["Linux", "ELK Stack", "Docker", "Git", "SublimeText", "MySQL", "Nginx", "Redis", "Composer", "Jekyll"]
+    list: ["Linux", "ELK Stack", "Docker", "Git", "SublimeText", "MySQL", "Nginx", "Redis", "Composer", "Jekyll", "Ansible"]
 
 display_name: UniFreak
 contact:

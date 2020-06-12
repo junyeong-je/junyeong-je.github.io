@@ -1,6 +1,7 @@
 ---
 title: "Elasticsearch Cluster,Node 정의 및 Replica 시스템 설정 "
 layout: post
+lastmod : 2020-06-10 12:45:00 +0900
 category: note
 tags: [ELK stack]
 excerpt: "Cluster와 Node 개념에 대한 정의와 2개의 노드를 구성해 데이터 리플리카를 확인합니다."
