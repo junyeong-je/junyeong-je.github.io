@@ -12,7 +12,7 @@ skills:
     list: ["Shell", "Python", "SQL", "HTML", "Markdown"]
   - name: "Framework"
     icon-class: "fa fa-th-list"
-    list: ["AWS", "TOAST"]
+    list: ["AWS", "TOAST", "Pycharm"]
   - name: "Tools"
     icon-class: "fa fa-cogs"
     list: ["Linux", "ELK Stack", "Docker", "Git", "SublimeText", "MySQL", "Nginx", "Redis", "Composer", "Jekyll", "Ansible"]
