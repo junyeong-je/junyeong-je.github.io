@@ -3,6 +3,7 @@ title: "AWS CodeCommit Migration, data transfer"
 layout: post
 category: Migration
 tags: [AWS, CodeCommit, Github]
+excerpt: "이 문서는 하나의 Git 레포지토리 이전에 대한 내용을 다룹니다."
 ---
 
 
