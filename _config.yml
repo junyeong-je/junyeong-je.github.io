@@ -26,6 +26,7 @@ url: https://junyeong-je.github.io # Required: replace this with your domain
 # 또한 disqus(댓글시스템)를 이용하기 위해서도 필요.
 # 자신의 github page url을 입력
 # ( https://your_github_id.github.io 형식 )
+production_url: https://junyeong-je.github.io/
 
 baseurl: /
 name: techlog # Required: will be displayed on every page's header
