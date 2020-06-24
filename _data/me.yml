@@ -12,14 +12,14 @@ skills:
     list: ["Shell", "Python", "SQL", "HTML", "Markdown"]
   - name: "Framework"
     icon-class: "fa fa-th-list"
-    list: ["AWS", "TOAST", "Pycharm"]
+    list: ["AWS", "TOAST"]
   - name: "Tools"
     icon-class: "fa fa-cogs"
-    list: ["Linux", "ELK Stack", "Docker", "Git", "SublimeText", "MySQL", "Nginx", "Redis", "Composer", "Jekyll", "Ansible"]
+    list: ["Linux", "Pycharm", "ELK Stack", "Docker", "Git", "SublimeText", "MySQL", "Nginx", "Redis", "Composer", "Jekyll", "Ansible"]
 
 display_name: UniFreak
 contact:
-  - {name: "Mobile", icon-class: "fa fa-phone-square", text: "010 3330 7860", link: "tel: 01033307860"}
+#  - {name: "Mobile", icon-class: "fa fa-phone-square", text: "010 3330 7860", link: "tel: 01033307860"}
   - {name: "Email", icon-class: "fa fa-envelope", text: "love_y7@naver.com", link: "mailto: love_y7@naver.com"}
 social:
-  - {name: "GitHub", icon-class: "fa fa-github-square", text: "https://junyeong-je.github.io/Techlog/", link: "https://junyeong-je.github.io/Techlog/"}
+  - {name: "GitHub", icon-class: "fa fa-github-square", text: "https://junyeong-je.github.io", link: "https://junyeong-je.github.io"}
