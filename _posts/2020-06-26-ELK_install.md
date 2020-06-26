@@ -1,5 +1,5 @@
 ---
-title: "ELK Install "
+title: "ELK Install for Amazon Linux"
 layout: post
 lastmod : 2020-06-26 10:55:00 +0900 UTC
 category: note
@@ -42,7 +42,7 @@ yum install elasticsearch-7.5.0
 ```
 
 ```
-==========================================================================================================================================
+#==========================================================================================================================================
 Package                            Arch                        Version                      Repository                              Size
 ==========================================================================================================================================
 Installing:
@@ -92,11 +92,12 @@ curl -XGET 127.0.0.1:9200
 ```
 
 **특이사항**
-<span style="color:#666666"><span style="color:#ffffff"><span style="color:#000000">만약 'curl: (7) : Failed connect to localhost:9200; 연결이 거부됨' 과 같은 Error가 발생할 경우, /etc/elasticsearch/elasticsearch.yml 파일에서 아래 설정을 확인한다.</span></span></span>
-<span style="color:#666666">`network.host: 127.0.0.1`</span>
-웹에서 elasticsearch를 확인하고 싶으면 아래 설정을 추가해줍니다.
+1. 만약 'curl: (7) : Failed connect to localhost:9200; 연결이 거부됨' 과 같은 Error가 발생할 경우, /etc/elasticsearch/elasticsearch.yml 파일에서 아래 설정을 확인합니다.<br>
+`network.host: 127.0.0.1`
+
+2. 웹에서 elasticsearch를 확인하고 싶으면 아래 설정을 추가해줍니다.<br>
 `http.host: 0.0.0.0`
-![image.png](/files/2666666788231585524)
+![](Img/2020-06-26-ELK_install_images/7d0c4187.png)
 
 ## Kibana
 
@@ -160,7 +161,7 @@ export PATH=$JAVA_HOME/bin:$PATH
 export CLASSPATH="$JAVA_HOME/lib:$CLASS_PATH"
 ```
 
-`yml 설정은 필요치 않습니다.`
+`yml 설정은 필요치 않습니다.`<br>
 4\. 실행
 logstash는 서비스 형태로 실행하는 것이 아닌 conf파일을 참조하여 실행합니다. 아래와 같은 명령으로 logstash를 실행할 수 있습니다.
 보다 상세한 내용은 filebeat 연동에서 다루겠습니다.
