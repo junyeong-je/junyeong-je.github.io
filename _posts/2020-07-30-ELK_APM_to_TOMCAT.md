@@ -1,45 +1,39 @@
 ---
-title: "ELK Elasticsearch Add Node"
+title: "ELK APM-server Install & agent target Tomcat9"
 layout: post
 lastmod : 2020-07-30 13:53:00 +0900 UTC
 category: note
-tags: [Elasticsearch]
-excerpt: "Elasticsearch의 Node 추가에 대해 다룹니다."
+tags: [Elasticsearch, Kibana, APM, Tomcat]
+excerpt: "APM-server 설치 이후 에이전트를 통한 톰캣9에대해 APM 모니터링을 진행합니다."
 ---
 
 ## 개요
-* 지난 ELK_install 포스트에 이어집니다.
-* Elassticsearch master,data 2개의 노드에 구성 후 데이터 리플리카 확인.
-* 동일한 7.5.0버전의 Elasticsearch 설치.(RPM설치)
-* 참고 사이트
-  * https://lhcsoft.blogspot.com/2019/03/elasticsearch-cluster.html
+* APM이란 : (Application Performance Monitoring)은 응용 프로그램 내부에서 심도있는 성능 메트릭과 오류를 수집합니다. 
+  수천 개의 응용 프로그램의 성능을 실시간으로 모니터링 할 수 있습니다.
+* APM-server 설치 이후 에이전트를 통한 톰캣9에대해 APM 모니터링을 진행합니다.
 <br>
-## 본문
-1. /etc/elasticsearch/elasticsearch.yml 설정<br>
-* 마스터 설정<br>
+## APM 서버 설치
+* APM 서버 설치(RPM)
+  * apm-server는 ELK와 통신이 가능한 서버에 설치하면 되나, 저의 경우 ELK와 동일한 인스턴스에 install 했습니다.
 ```
-cluster.name: elastic-jun0 
-node.name: es-node-1
-node.master: true
-node.data: true
-network.host: 10.0.0.73
-http.host: 0.0.0.0
-cluster.initial_master_nodes: ["10.0.0.73"]
+curl -L -O https://artifacts.elastic.co/downloads/apm-server/apm-server-7.5.0-x86_64.rpm
+sudo rpm -vi apm-server-7.5.0-x86_64.rpm
 ```
 
-* 리플리카 설정<br>
+* /etc/apm-server/apm-server.yml 수정
+```buildoutcfg
+apm-server:
+  # Defines the host and port the server is listening on. Use "unix:/path/to.sock" to listen on a unix domain socket.
+  host: "0.0.0.0:8200"
 ```
-cluster.name: elastic-jun0
-node.name: es-node-2
-node.master: false
-node.data: true
-network.host: 10.0.1.237
-http.host: 0.0.0.0
-discovery.seed_hosts: ["10.0.0.73:9300"]
+```buildoutcfg
+output.elasticsearch:
+    hosts: ["localhost:9200"]
+    username: <username>
+    password: <password>
 ```
-
 * replica 서버가 off 되었을 때<br>
-```
+```buildoutcfg
 [root@ip-10-0-0-73 system]# curl -XGET 'localhost:9200/_cat/indices?v'
 health status index                              uuid                   pri rep docs.count docs.deleted store.size pri.store.size
 yellow open   .kibana_task_manager_1             nbB6TrJeRZGI9mQ_zjNQfA   1   1          2            1     37.9kb         37.9kb
