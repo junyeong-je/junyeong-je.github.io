@@ -84,6 +84,7 @@ chmod +x setenv.sh
 * 데몬재시작 프로세스 확인
   * -javaagent부터 Catalina_OPTS를 올바르게 정의 했음을 확인 할 수 있다.<br>
 <br>
+<p>
 ```
 /usr/bin/java -Djava.util.logging.config.file=/usr/local/tomcat9/conf/logging.properties
 -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048
@@ -95,7 +96,7 @@ chmod +x setenv.sh
 -Dcatalina.base=/usr/local/tomcat9 -Dcatalina.home=/usr/local/tomcat9 
 -Djava.io.tmpdir=/usr/local/tomcat9/temp org.apache.catalina.startup.Bootstrap start
 ```
-
+</p>
 * Agent와 kibana 데이터 체크 가능합니다.
 ![](Img/2020-07-30-ELK_APM_to_TOMCAT/6cd4a70b.png)
 
@@ -103,14 +104,15 @@ chmod +x setenv.sh
 ![](Img/2020-07-30-ELK_APM_to_TOMCAT/68c6f038.png)
 
 ## 참고자료
-ELK설치 5편 (Application Performance Monitoring)<br>
-http://www.gnoti.com/index.php/2018/10/12/elk5/ <br>
-APM-agent설치<br>
-https://repo1.maven.org/maven2/co/elastic/apm/elastic-apm-agent/1.12.0/<br>
-JAVA jar파일 생성<br>
-http://asuraiv.blogspot.com/2015/11/java-executableor-runnable-jar.html<br>
-APM Java Agent 호출받기<br>
-RPM으로 설치한 7버전 대 Tomcat은 동작하지 않아, rpm으로 9버전을 설치하여 테스트.<br>
+* ELK설치 5편 (Application Performance Monitoring)<br>
+  * http://www.gnoti.com/index.php/2018/10/12/elk5/ <br>
+* APM-agent설치<br>
+  * https://repo1.maven.org/maven2/co/elastic/apm/elastic-apm-agent/1.12.0/<br>
+* JAVA jar파일 생성<br>
+  * http://asuraiv.blogspot.com/2015/11/java-executableor-runnable-jar.html<br>
+* APM Java Agent 호출받기<br>
+  * RPM으로 설치한 7버전 대 Tomcat은 동작하지 않아, rpm으로 9버전을 설치하여 테스트.<br>
+<p>
 ```
 https://www.elastic.co/guide/en/apm/agent/java/current/setup-javaagent.html#setup-generic
 export CATALINA_OPTS="$CATALINA_OPTS -javaagent:/home/ec2-user/elastic-apm-agent-1.12.0.jar"
@@ -118,5 +120,6 @@ export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.service_name=my-application"
 export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.application_packages=org.example,org.another.example"
 export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.server_urls=http://10.0.0.73:8200"
 ```
-Tomcat 서버용 Elasticsearch에 APM 에이전트 설치<br>
-https://curiousviral.com/installation-of-apm-agent-for-java/
+</p>
+* Tomcat 서버용 Elasticsearch에 APM 에이전트 설치<br>
+  * https://curiousviral.com/installation-of-apm-agent-for-java/
