@@ -27,7 +27,7 @@ RewriteRule ^(.*)$ $1.gz [QSA,L]
   Header append Vary Accept-Encoding
 </FilesMatch>
 ```
-
+<br>
 ```nginx
 server {
   listen          80;
@@ -35,7 +35,7 @@ server {
   rewrite ^       http://www.domain.com$request_uri? permanent;
 }
 ```
-
+<br>
 ```python
 def fib(n):    # write Fibonacci series up to n
     """Print a Fibonacci series up to n."""
@@ -51,19 +51,19 @@ public class java {
     }
 }
 ```
-
+<br>
 ```php
 <?php
   print("Hello {$world}");
 ?>
 ```
-
+<br>
 ```yaml
 one: Mark McGwire
 two: Sammy Sosa
 three: Ken Griffey
 ```
-
+<br>
 ```html
 <html>
 <head>
@@ -73,7 +73,7 @@ three: Ken Griffey
 </body>
 </html>
 ```
-
+<br>
 ```json
 {
   "exec-opts": ["native.cgroupdriver=systemd"],
@@ -83,4 +83,31 @@ three: Ken Griffey
   },
   "storage-driver": "overlay2"
 }
+```
+<br>
+```shell
+# If not running interactively, don't do anything
+[[ -z "$PS1" ]] && return
+```
+<br>
+```html
+POST /demo/submit/ HTTP/1.1
+Host: rouge.jneen.net
+Cache-Control: max-age=0
+Origin: http://rouge.jayferd.us
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_2)
+    AppleWebKit/535.7 (KHTML, like Gecko) Chrome/16.0.912.63 Safari/535.7
+Content-Type: application/json
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Referer: http://pygments.org/
+Accept-Encoding: gzip,deflate,sdch
+Accept-Language: en-US,en;q=0.8
+Accept-Charset: windows-949,utf-8;q=0.7,*;q=0.3
+
+{"name":"test","lang":"text","boring":true}
+```
+<br>
+
+```sql
+SELECT * FROM `users` WHERE `user`.`id` = 1
 ```
