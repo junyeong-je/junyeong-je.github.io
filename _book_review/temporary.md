@@ -4,33 +4,64 @@ stars: 1
 
 임시 페이지
 
-```commandline
-tar -xvf apache-tomcat-9.0.30.tar.gz
-mv apache-tomcat-9.0.30.tar.gz /usr/local/tomcat9
+```apache
+AddDefaultCharset UTF-8
+
+RewriteEngine On
+
+# Serve gzipped version if available and accepted
+AddEncoding x-gzip .gz
+RewriteCond %{HTTP:Accept-Encoding} gzip
+RewriteCond %{REQUEST_FILENAME}.gz -f
+RewriteRule ^(.*)$ $1.gz [QSA,L]
+<FilesMatch \.css\.gz$>
+  ForceType text/css
+  Header append Vary Accept-Encoding
+</FilesMatch>
+<FilesMatch \.js\.gz$>
+  ForceType application/javascript
+  Header append Vary Accept-Encoding
+</FilesMatch>
+<FilesMatch \.html\.gz$>
+  ForceType text/html
+  Header append Vary Accept-Encoding
+</FilesMatch>
 ```
 
-```buildoutcfg
-tar -xvf apache-tomcat-9.0.30.tar.gz
-mv apache-tomcat-9.0.30.tar.gz /usr/local/tomcat9
+```nginx
+server {
+  listen          80;
+  server_name     example.com *.example.com;
+  rewrite ^       http://www.domain.com$request_uri? permanent;
+}
 ```
 
-```dtd
-tar -xvf apache-tomcat-9.0.30.tar.gz
-mv apache-tomcat-9.0.30.tar.gz /usr/local/tomcat9
+```python
+def fib(n):    # write Fibonacci series up to n
+    """Print a Fibonacci series up to n."""
+    a, b = 0, 1
+    while a < n:
+        print a,
+        a, b = b, a+b
 ```
-```editorconfig
-tar -xvf apache-tomcat-9.0.30.tar.gz
-mv apache-tomcat-9.0.30.tar.gz /usr/local/tomcat9
+```java
+public class java {
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}
 ```
 
-```gitignore
-tar -xvf apache-tomcat-9.0.30.tar.gz
-mv apache-tomcat-9.0.30.tar.gz /usr/local/tomcat9
+```php
+<?php
+  print("Hello {$world}");
+?>
 ```
 
-```hgignore
-tar -xvf apache-tomcat-9.0.30.tar.gz
-mv apache-tomcat-9.0.30.tar.gz /usr/local/tomcat9
+```yaml
+one: Mark McGwire
+two: Sammy Sosa
+three: Ken Griffey
 ```
 
 ```html
