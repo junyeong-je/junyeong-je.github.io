@@ -97,7 +97,7 @@ curl -XGET 127.0.0.1:9200
 
 2. 웹에서 elasticsearch를 확인하고 싶으면 아래 설정을 추가해줍니다.<br>
 `http.host: 0.0.0.0`
-![](Img/2020-06-26-ELK_install_images/7d0c4187.png)
+![](Img/2020-06-26-ELK_install/7d0c4187.png)
 
 ## Kibana
 
@@ -130,8 +130,9 @@ elasticsearch.hosts: ["[http://localhost:9200](http://localhost:9200)"]
 service kibana start
 ```
 <br>
-5\. 웹 접근
-![image.png](/files/2666708053996424356)
+5\. 웹 접근<br>
+![](Img/2020-06-26-ELK_install/da2fa2a3.png)
+<br>
 특이사항
 kibana와 elasticsearch의 버전이 다를경우 <span style="color:#666666">`kibana server is not ready yet`에러가 발생할 수 있습니다.</span>
 <br>
