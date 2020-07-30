@@ -47,7 +47,7 @@ wget https://repo1.maven.org/maven2/co/elastic/apm/elastic-apm-agent/1.12.0/elas
 
 * Tomcat9 설치<br>
 http://mirror.apache-kr.org/tomcat/tomcat-9/v9.0.30/bin/<br>
-  * Tomcat 9.0에는 Java 8 이상이 필요합니다.
+  * Tomcat 9.0에는 Java 8 이상이 필요합니다.<br>
 ```
 wget http://mirror.apache-kr.org/tomcat/tomcat-9/v9.0.30/bin/apache-tomcat-9.0.30.tar.gz
 tar -xvf apache-tomcat-9.0.30.tar.gz
@@ -58,6 +58,7 @@ mv apache-tomcat-9.0.30.tar.gz /usr/local/tomcat9
 ## 트러블 슈팅
 * replication error
   * master node에서 cluster.initial_master_nodes: ["10.0.0.73”] 와 같은 형태로 옵션을 넣어야만 아래 에러가 발생하지 않는다.<br>
+<br>
 ```
 [1]: the default discovery settings are unsuitable for production use;
  at least one of [discovery.seed_hosts, discovery.seed_providers, cluster.initial_master_nodes] must be configured
@@ -81,16 +82,17 @@ chmod +x setenv.sh
 ```
 
 * 데몬재시작 프로세스 확인
-  * -javaagent부터 Catalina_OPTS를 올바르게 정의 했음을 확인 할 수 있다.
+  * -javaagent부터 Catalina_OPTS를 올바르게 정의 했음을 확인 할 수 있다.<br>
+<br>
 ```
 /usr/bin/java -Djava.util.logging.config.file=/usr/local/tomcat9/conf/logging.properties
- -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048
- -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
- -javaagent:/home/ec2-user/elastic-apm-agent-1.12.0.jar -Delastic.apm.service_name=my-application
- -Delastic.apm.application_packages=org.example,org.another.example 
+-Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048
+-Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+-javaagent:/home/ec2-user/elastic-apm-agent-1.12.0.jar -Delastic.apm.service_name=my-application
+-Delastic.apm.application_packages=org.example,org.another.example 
 -Delastic.apm.server_urls=http://10.0.0.73:8200 -Dignore.endorsed.dirs= 
 -classpath /usr/local/tomcat9/bin/bootstrap.jar:/usr/local/tomcat9/bin/tomcat-juli.jar
- -Dcatalina.base=/usr/local/tomcat9 -Dcatalina.home=/usr/local/tomcat9 
+-Dcatalina.base=/usr/local/tomcat9 -Dcatalina.home=/usr/local/tomcat9 
 -Djava.io.tmpdir=/usr/local/tomcat9/temp org.apache.catalina.startup.Bootstrap start
 ```
 
@@ -108,7 +110,7 @@ https://repo1.maven.org/maven2/co/elastic/apm/elastic-apm-agent/1.12.0/<br>
 JAVA jar파일 생성<br>
 http://asuraiv.blogspot.com/2015/11/java-executableor-runnable-jar.html<br>
 APM Java Agent 호출받기<br>
-* RPM으로 설치한 7버전 대 Tomcat은 동작하지 않아, rpm으로 9버전을 설치하여 테스트.<br>
+RPM으로 설치한 7버전 대 Tomcat은 동작하지 않아, rpm으로 9버전을 설치하여 테스트.<br>
 ```
 https://www.elastic.co/guide/en/apm/agent/java/current/setup-javaagent.html#setup-generic
 export CATALINA_OPTS="$CATALINA_OPTS -javaagent:/home/ec2-user/elastic-apm-agent-1.12.0.jar"
