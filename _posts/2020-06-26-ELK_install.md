@@ -97,7 +97,7 @@ curl -XGET 127.0.0.1:9200
 
 2. 웹에서 elasticsearch를 확인하고 싶으면 아래 설정을 추가해줍니다.<br>
 `http.host: 0.0.0.0`
-![](Img/2020-06-26-ELK_install/7d0c4187.png)
+![](../assets/img/posts/2020-06-26-ELK_install/7d0c4187.png)
 
 ## Kibana
 

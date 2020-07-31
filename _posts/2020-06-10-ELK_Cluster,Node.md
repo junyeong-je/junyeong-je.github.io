@@ -74,7 +74,7 @@ discovery.seed_hosts: ["10.0.0.73:9300"]
 ### index status 확인
 
 \- elasticsearch의 index에는 3가지의 상태가 있습니다\.
-![](Img/2020-06-10-ELK_Cluster,Node/1.png)<br>
+![](../assets/img/posts/2020-06-10-ELK_Cluster,Node/1.png)<br>
 Yellow 상태는 Primary shard는 준비가 되었으나, Replica shard가 준비되어 있지 않다! 라는 뜻 입니다.<br>
 Replica shard가 없으면 Yellow라는 것은, 필요한 이유가 있기 때문인데 그 것이 무엇일까?<br>
 
@@ -82,7 +82,7 @@ Replica shard가 없으면 Yellow라는 것은, 필요한 이유가 있기 때�
 2\. 검색 성능 : replica shard도 읽기 요청을 처리할 수 있기 때문에 replica가 많아질 경우 검색 성능이 증가하지만\, 하드웨어를 더 추가해야만 증가한다고 합니다\.<br>
 
 <span style="color:#555555">근데 node가 하나라면 복제를 할 수 없다는 점입니다. 기본적으로 elasticsearch는 같은 노드에 동일한 데이터를 가지는 shard를 저장할 수 없습니다.</span><br>
-![](Img/2020-06-10-ELK_Cluster,Node/2.png)
+![](../assets/img/posts/2020-06-10-ELK_Cluster,Node/2.png)
 
 * replica 서버가 off 되었을 때.
 

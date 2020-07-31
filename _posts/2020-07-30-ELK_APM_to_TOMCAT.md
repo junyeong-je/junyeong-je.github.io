@@ -27,6 +27,7 @@ apm-server:
   # Defines the host and port the server is listening on. Use "unix:/path/to.sock" to listen on a unix domain socket.
   host: "0.0.0.0:8200"
 ```
+
 ```
 output.elasticsearch:
     hosts: ["localhost:9200"]
@@ -56,16 +57,16 @@ mv apache-tomcat-9.0.30.tar.gz /usr/local/tomcat9
 
 
 ## 트러블 슈팅
-* replication error
-  * master node에서 cluster.initial_master_nodes: ["10.0.0.73”] 와 같은 형태로 옵션을 넣어야만 아래 에러가 발생하지 않는다.<br>
+1.replication error<br>
+master node에서 cluster.initial_master_nodes: ["10.0.0.73”] 와 같은 형태로 옵션을 넣어야만 아래 에러가 발생하지 않는다.<br>
 ```
 [1]: the default discovery settings are unsuitable for production use;
  at least one of [discovery.seed_hosts, discovery.seed_providers, cluster.initial_master_nodes] must be configured
 ```
 
-* setenv.sh 스크립트생성
-  * catalina.sh 파일에는 자바 옵션 설정 및 톰캣 로그 경로등 각종 설정을 저장 할 수 있다. 
-  * 기본파일을 변경할 경우 문제가 발생할 수 있기 때문에 추가 옵션을 설정하는 방법으로 bin/setenv.sh을 추가하여 사용하는 방법이 있다.
+setenv.sh 스크립트생성<br>
+2.catalina.sh 파일에는 자바 옵션 설정 및 톰캣 로그 경로등 각종 설정을 저장 할 수 있다.<br> 
+기본파일을 변경할 경우 문제가 발생할 수 있기 때문에 추가 옵션을 설정하는 방법으로 bin/setenv.sh을 추가하여 사용하는 방법이 있다.
 
 ```
 vim /usr/local/tomcat9/bin/setenv.sh
@@ -80,8 +81,8 @@ export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.server_urls=http://10.0.0.73:
 chmod +x setenv.sh
 ```
 
-* 데몬재시작 프로세스 확인
-  * -javaagent부터 Catalina_OPTS를 올바르게 정의 했음을 확인 할 수 있다.
+3.데몬재시작 프로세스 확인<br>
+javaagent부터 Catalina_OPTS를 올바르게 정의 했음을 확인 할 수 있다.
 ```
 /usr/bin/java -Djava.util.logging.config.file=/usr/local/tomcat9/conf/logging.properties
  -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048
@@ -95,10 +96,10 @@ chmod +x setenv.sh
 ```
 
 * Agent와 kibana 데이터 체크 가능합니다.
-![](Img/2020-07-30-ELK_APM_to_TOMCAT/6cd4a70b.png)
+![](../assets/img/posts/2020-07-30-ELK_APM_to_TOMCAT/6cd4a70b.png)
 
 * my-application명으로 트랜잭션,에러,JVM상태 확인 가능합니다.
-![](Img/2020-07-30-ELK_APM_to_TOMCAT/68c6f038.png)
+![](../assets/img/posts/2020-07-30-ELK_APM_to_TOMCAT/68c6f038.png)
 
 ## 참고자료
 ELK설치 5편 (Application Performance Monitoring)<br>
@@ -108,7 +109,7 @@ https://repo1.maven.org/maven2/co/elastic/apm/elastic-apm-agent/1.12.0/<br>
 JAVA jar파일 생성<br>
 http://asuraiv.blogspot.com/2015/11/java-executableor-runnable-jar.html<br>
 APM Java Agent 호출받기<br>
-* RPM으로 설치한 7버전 대 Tomcat은 동작하지 않아, rpm으로 9버전을 설치하여 테스트.<br>
+RPM으로 설치한 7버전 대 Tomcat은 동작하지 않아, rpm으로 9버전을 설치하여 테스트.<br>
 ```
 https://www.elastic.co/guide/en/apm/agent/java/current/setup-javaagent.html#setup-generic
 export CATALINA_OPTS="$CATALINA_OPTS -javaagent:/home/ec2-user/elastic-apm-agent-1.12.0.jar"
