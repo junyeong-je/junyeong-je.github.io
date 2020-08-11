@@ -44,6 +44,7 @@ def fib(n):    # write Fibonacci series up to n
         print a,
         a, b = b, a+b
 ```
+<br>
 ```java
 public class java {
     public static void main(String[] args) {
@@ -85,7 +86,7 @@ three: Ken Griffey
 }
 ```
 <br>
-```shell
+```https://media.vlpt.us/images/kidow/post/d0b13054-2feb-4352-941e-1af78b11093d/49d537ae09031c5f5eba68ac194d4ed8.jpeg
 # If not running interactively, don't do anything
 [[ -z "$PS1" ]] && return
 ```

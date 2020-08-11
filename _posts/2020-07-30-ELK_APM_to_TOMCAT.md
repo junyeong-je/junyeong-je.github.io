@@ -16,39 +16,39 @@ excerpt: "APM-server 설치 이후 에이전트를 통한 톰캣9에대해 APM �
 ## APM 서버 설치
 APM 서버 설치(RPM)<br>
 apm-server는 ELK와 통신이 가능한 서버에 설치하면 되나, 저의 경우 ELK와 동일한 인스턴스에 install 했습니다.
-```
+```shell
 curl -L -O https://artifacts.elastic.co/downloads/apm-server/apm-server-7.5.0-x86_64.rpm
 sudo rpm -vi apm-server-7.5.0-x86_64.rpm
 ```
 
 /etc/apm-server/apm-server.yml 수정
-```
+```yaml
 apm-server:
   # Defines the host and port the server is listening on. Use "unix:/path/to.sock" to listen on a unix domain socket.
   host: "0.0.0.0:8200"
 ```
 
-```
+```yaml
 output.elasticsearch:
     hosts: ["localhost:9200"]
     username: <username>
     password: <password>
 ```
 APM Server start
-```
+```shell
 service apm-server start
 ```
 
 ## Tomcat 9 server set-up
 Agent install
-```
+```shell
 wget https://repo1.maven.org/maven2/co/elastic/apm/elastic-apm-agent/1.12.0/elastic-apm-agent-1.12.0-javadoc.jar
 ```
 
 Tomcat9 설치<br>
 (http://mirror.apache-kr.org/tomcat/tomcat-9/v9.0.30/bin/)<br>
 Tomcat 9.0에는 Java 8 이상이 필요합니다.<br>
-```
+```shell
 wget http://mirror.apache-kr.org/tomcat/tomcat-9/v9.0.30/bin/apache-tomcat-9.0.30.tar.gz
 tar -xvf apache-tomcat-9.0.30.tar.gz
 mv apache-tomcat-9.0.30.tar.gz /usr/local/tomcat9
@@ -58,7 +58,7 @@ setenv.sh 스크립트생성<br>
 catalina.sh 파일에는 자바 옵션 설정 및 톰캣 로그 경로등 각종 설정을 저장 할 수 있다.<br> 
 기본파일을 변경할 경우 문제가 발생할 수 있기 때문에 추가 옵션을 설정하는 방법으로 bin/setenv.sh을 추가하여 사용하는 방법이 있다.
 
-```
+```shell
 vim /usr/local/tomcat9/bin/setenv.sh
 ```
 ```
@@ -67,12 +67,12 @@ export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.service_name=my-application"
 export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.application_packages=org.example,org.another.example"
 export CATALINA_OPTS="$CATALINA_OPTS -Delastic.apm.server_urls=http://10.0.0.73:8200"
 ```
-```
+```shell
 chmod +x setenv.sh
 ```
 
 데몬재시작 프로세스 확인<br>
-javaagent부터 Catalina_OPTS를 올바르게 정의 했음을 확인 할 수 있다.
+javaagent부터 `atalina_OPTS`를 올바르게 정의 했음을 확인 할 수 있다.
 ```
 /usr/bin/java -Djava.util.logging.config.file=/usr/local/tomcat9/conf/logging.properties
 -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048
