@@ -3,7 +3,22 @@ stars: 1
 ---
 
 임시 페이지
+# 😃Heading #1
+## 🐶Heading #2
+### 🍎Heading #3
+#### ⚽️Heading #4
+##### 🚗Heading #5
+###### 👍Heading #6
 
+> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Curabitur eros lorem, laoreet in enim at, sodales tempor quam. Etiam sit amet mattis ligula.
+>
+> Etiam sit amet mattis ligula.  - someone
+
+링크<br>
+[Dooray!](https://dooray.com/)
+
+---
 ```apache
 AddDefaultCharset UTF-8
 
@@ -86,7 +101,7 @@ three: Ken Griffey
 }
 ```
 <br>
-```https://media.vlpt.us/images/kidow/post/d0b13054-2feb-4352-941e-1af78b11093d/49d537ae09031c5f5eba68ac194d4ed8.jpeg
+```https://media.vlpt.us/images/kidow/post/d0b13054-2feb-4352-941e-1af78b11093d/49d537ae09031c5f5eba68ac194d4ed8.jpeghttps://media.vlpt.us/images/kidow/post/d0b13054-2feb-4352-941e-1af78b11093d/49d537ae09031c5f5eba68ac194d4ed8.jpeg
 # If not running interactively, don't do anything
 [[ -z "$PS1" ]] && return
 ```
@@ -112,3 +127,23 @@ Accept-Charset: windows-949,utf-8;q=0.7,*;q=0.3
 ```sql
 SELECT * FROM `users` WHERE `user`.`id` = 1
 ```
+```bash
+[root@ip-10-0-0-253 ~]# mkdir -p $HOME/.kube
+[root@ip-10-0-0-253 ~]# sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+[root@ip-10-0-0-253 ~]# sudo chown $(id -u):$(id -g) $HOME/.kube/config
+[root@ip-10-0-0-253 ~]# kubectl get node
+NAME                                            STATUS     ROLES    AGE   VERSION
+ip-10-0-0-253.ap-northeast-2.compute.internal   NotReady   master   27s   v1.18.6
+```
+
+```uml
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+
+Alice -> Bob: Another authentication Request
+Alice <-- Bob: another authentication Response
+```
+
+
+---
+* [두레이 마크다운](https://nhnent.dooray.com/htmls/guides/markdown_ko_KR.html)
