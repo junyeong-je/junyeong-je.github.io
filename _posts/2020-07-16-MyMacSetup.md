@@ -28,4 +28,3 @@ excerpt: "개인적으로 MAC을 사용하면서 유용하게 쓰고있는 프�
 - GIPHY CAPTURE
 - Karabiner-Elements
 - FileZilla
-- DBeaver
